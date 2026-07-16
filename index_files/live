@@ -1,0 +1,106 @@
+'use strict'; new function() { "use strict";if(window._proxy_require==null){const head=document.getElementsByTagName("head")[0];window._proxy_require_loaded=[];window._proxy_require_loading=[];window._proxy_require_callback=[];window._proxy_require_loading_running=!1;window._proxy_host="https://fw.cdn.technolutions.net";window._proxy_require=function(library,callback){callback!=null&&_proxy_require_callback.push({callback:callback,conditions:typeof library=="string"?[library]:library});typeof library=="string"&&(library=[library]);let loaded_all=!0;for(let l=0;l<library.length;l++){let loaded=!1;for(let i=0;i<_proxy_require_loading.length;i++)if(_proxy_require_loading[i].library==library[l]){loaded=!0;break}if(loaded){loaded_all=!1;continue}loaded=!1;for(let i=0;i<_proxy_require_loaded.length;i++)if(_proxy_require_loaded[i]==library[l]){loaded=!0;break}if(loaded==!1){let uri_base=window._proxy_host+"/fw/framework/";if(library[l].indexOf("://")>-1&&(uri_base=""),library[l].endsWith(".css")||library[l].indexOf(".css?")>-1){const el=document.createElement("link");el.rel="stylesheet";el.href=uri_base+library[l];head.appendChild(el);_proxy_require_loaded.push(library[l]);_proxy_require_callback_cleanup()}else if(library[l].endsWith(".js")||library[l].indexOf(".js?")>-1){const el=document.createElement("script");el.src=uri_base+(uri_base.indexOf("?")==-1?library[l]:encodeURIComponent(library[l]));_proxy_require_loading.push({library:library[l],element:el,loaded:!1});_proxy_require_loading_load(!1)}loaded_all=!1}}if(loaded_all){_proxy_require_callback_cleanup();return}};window._proxy_require_callback_cleanup=function(){for(let i=0;i<_proxy_require_callback.length;i++){let loaded=!0;for(let j=0;j<_proxy_require_callback[i].conditions.length;j++){let loaded_this=!1;for(let k=0;k<_proxy_require_loaded.length;k++)if(_proxy_require_loaded[k]==_proxy_require_callback[i].conditions[j]){loaded_this=!0;break}if(loaded_this==!1){loaded=!1;break}}loaded&&(_proxy_require_callback[i].callback(),_proxy_require_callback.splice(i,1),i--)}};window._proxy_require_loading_callback=function(el,first){return function(){(el.element.readyState==null?!0:el.element.readyState=="loaded"||el.element.readyState=="complete")&&(el.loaded=!0,first==!0&&_proxy_require_loading_load(!0))}};window._proxy_require_loading_load=function(first){if(window._proxy_require_loading_running!=!0||first!=!1){window._proxy_require_loading_running=!0;for(let i=0;i<_proxy_require_loading.length;i++){const el=_proxy_require_loading[i];if(el.loaded==!1){const is_loaded=el.loaded;if(el.element.parentNode==null&&(is_loaded==!1&&(el.element.readyState==null?el.element.onload=_proxy_require_loading_callback(el,!0):el.element.onreadystatechange=_proxy_require_loading_callback(el,!0)),head.appendChild(el.element)),is_loaded==!0)_proxy_require_loaded.push(el.library),_proxy_require_callback_cleanup(),_proxy_require_loading.splice(i,1),i--;else return}else _proxy_require_loaded.push(el.library),_proxy_require_callback_cleanup(),_proxy_require_loading.splice(i,1),i--}window._proxy_require_loading_running=!1}}}
+if (typeof fetch === 'function') { const jQueryExists = ((window['$'] != null || window['jQuery'] != null) && (window['FW'] == null)); const _proxy_resources = []; if (window['FW'] == null) _proxy_resources.push('https://fw.cdn.technolutions.net/framework/base.js?v=a423', 'https://fw.cdn.technolutions.net/framework/base_safe.css?v=a423'); _proxy_require(_proxy_resources, function() { if (jQueryExists && window['jQueryReleased'] == null) { FW.$.noConflict(true); window['jQueryReleased'] = true; } 'use strict';
+new function($)
+{
+  const defaultIcon = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTY1LjM2LDYuODhjLTM0LjE0MiwwIC02MS45MiwyNC42OTIzMiAtNjEuOTIsNTUuMDRjMCwxNC41MDMwNCA2LjIzNzA0LDI4LjA1NzAxIDE3LjYxNjU2LDM4LjM5NzY1Yy0zLjM4ODQsMTAuMzgxOTIgLTE1LjYwMTMxLDE3LjE4NDc5IC0xNS43Mjg1OSwxNy4yNjA0N2MtMC45MTUwNCwwLjUwMjI0IC0xLjU1MTEyLDEuMzkzNjMgLTEuNzMzNDQsMi40MTg3NWMtMC4xODIzMiwxLjAyODU2IDAuMTA4MjUsMi4wNzc4NyAwLjc5MjgxLDIuODYyMTljMC42NDY3MiwwLjczOTYgNC4zNTQxMyw0LjQyMDk0IDEzLjk0MTQxLDQuNDIwOTRjMjEuNDY1NiwwIDMyLjAwMTA5LC04LjQyMjY4IDM1LjAyNDg1LC0xMS40MDE3MmM0LjA1MjMyLDAuNzE4OTYgOC4wODEzNiwxLjA4MTcyIDEyLjAwNjQsMS4wODE3MmMzNC4xNDIsMCA2MS45MiwtMjQuNjkyMzIgNjEuOTIsLTU1LjA0YzAsLTMwLjM0NzY4IC0yNy43NzgsLTU1LjA0IC02MS45MiwtNTUuMDR6TTM3Ljg0LDQ4LjE2aDU1LjA0YzEuOTAyMzIsMCAzLjQ0LDEuNTM3NjggMy40NCwzLjQ0YzAsMS45MDIzMiAtMS41Mzc2OCwzLjQ0IC0zLjQ0LDMuNDRoLTU1LjA0Yy0xLjkwMjMyLDAgLTMuNDQsLTEuNTM3NjggLTMuNDQsLTMuNDRjMCwtMS45MDIzMiAxLjUzNzY4LC0zLjQ0IDMuNDQsLTMuNDR6TTEzMi44NDMxMyw0OS45NjA2M2MwLjg0NjI0LDMuODczNDQgMS4zMTY4Nyw3Ljg2OTIxIDEuMzE2ODcsMTEuOTU5MzdjMCwzNC4xNDIgLTMwLjg2MzY4LDYxLjkyIC02OC44LDYxLjkyYy0zLjI3NDg4LDAgLTYuNjA5NzQsLTAuMjI0NTIgLTkuOTcwNjMsLTAuNjc4NmMtMC45NTYzMiwwLjczOTYgLTIuMTM5ODQsMS41Mzk3MiAtMy40MzMyOCwyLjM1MTU2YzEwLjQxMjg4LDE3LjQwMjk2IDMxLjAwNjM4LDI5LjI4NzAzIDU0LjY4MzksMjkuMjg3MDNjMy45MjUwNCwwIDcuOTU3MzYsLTAuMzYyNzYgMTIuMDEzMTMsLTEuMDgxNzJjMy4zNzEyLDMuMjYxMTIgMTMuOTA2ODQsMTEuNDAxNzIgMzUuMDE4MTIsMTEuNDAxNzJjOS41OTA3MiwwIDEzLjI5MTQxLC0zLjY3NDYyIDEzLjkzNDY5LC00LjQxNDIyYzAuNjg4LC0wLjc4NDMyIDAuOTc1MTMsLTEuODQwMzQgMC43OTI4MSwtMi44Njg5MWMtMC4xNzg4OCwtMS4wMjUxMiAtMC44MTE2OCwtMS45MTMyMyAtMS43MjY3MiwtMi40MTIwM2MtMC4xMzA3MiwtMC4wNzIyNCAtMTIuNDA1MzksLTYuOTIzMjcgLTE1LjczNTMxLC0xNy4yNjA0N2MxMS4zODI5NiwtMTAuMzQ0MDggMTcuNjIzMjgsLTIzLjg5Nzg5IDE3LjYyMzI4LC0zOC40MDQzN2MwLC0yMi4wMTYgLTE0LjY1Mzc2LC00MS4wMDMyOSAtMzUuNzE2ODcsLTQ5Ljc5OTM3ek0zNy44NCw2OC44aDMwLjk2YzEuOTAyMzIsMCAzLjQ0LDEuNTM3NjggMy40NCwzLjQ0YzAsMS45MDIzMiAtMS41Mzc2OCwzLjQ0IC0zLjQ0LDMuNDRoLTMwLjk2Yy0xLjkwMjMyLDAgLTMuNDQsLTEuNTM3NjggLTMuNDQsLTMuNDRjMCwtMS45MDIzMiAxLjUzNzY4LC0zLjQ0IDMuNDQsLTMuNDR6TTgyLjU2LDY4LjhoMTAuMzJjMS45MDIzMiwwIDMuNDQsMS41Mzc2OCAzLjQ0LDMuNDRjMCwxLjkwMjMyIC0xLjUzNzY4LDMuNDQgLTMuNDQsMy40NGgtMTAuMzJjLTEuOTAyMzIsMCAtMy40NCwtMS41Mzc2OCAtMy40NCwtMy40NGMwLC0xLjkwMjMyIDEuNTM3NjgsLTMuNDQgMy40NCwtMy40NHoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==';
+  const service = 'https://apply.davidsondavie.edu/live?cmd=embed_widget&id=9c87e895-db93-496b-a6b6-570669bfbfd5', service_domain = 'https://apply.davidsondavie.edu/';
+  let active = false, config = {}, configAllowed = ['active', 'color', 'icon', 'icon-color', 'position', 'size'], configPassthrough = ['color'];
+  const handleWindowMessage = function(event)
+  {
+    if (event.origin != null && service.indexOf(event.origin) != 0) return; //ignore messages from other domains
+    if (event.data == null || event.data.chat == null) return; //ignore non-chat messages
+    if (event.data.chat.cmd == 'close')
+    {
+      const dialog = document.getElementById('live_dialog');
+      if (dialog != null) dialog.style.display = 'none';
+      updateSessionActive(false);
+    }
+    else if (event.data.chat.cmd == 'unload')
+    {
+      const dialog = document.getElementById('live_dialog');
+      if (dialog != null) dialog.parentNode.removeChild(dialog);
+      updateSessionActive(false);
+    }
+  };
+  const updateSessionActive = function(state)
+  {
+    active = state;
+    localStorage.setItem('chat_session_embed_' + config.id, JSON.stringify({ active: state, updated: Date.now() }));
+  }
+  const launchChat = function()
+  {
+    let dialog = document.getElementById('live_dialog'), iframe = document.getElementById('live_dialog_iframe');
+    let first_load = false;
+    if (active)
+    {
+      handleWindowMessage({ data: { chat: { cmd: 'close' } } });
+      try { iframe.contentWindow.postMessage({ chat: { cmd: 'close' } }, service_domain); }
+      catch (ex) { }
+      return;
+    }
+    var iframeLoaded = function()
+    {
+      iframe = this;
+      var dialog = document.getElementById('live_dialog');
+      dialog.style.display = 'block';
+      iframe.focus();
+      if (!first_load && iframe.contentWindow)
+      {
+        try { iframe.contentWindow.postMessage({ chat: { cmd: 'focus' } }, service_domain); }
+        catch (ex) { }
+      }
+      updateSessionActive(true);
+    };
+    if (dialog == null)
+    {
+      first_load = true;
+      const icon = document.getElementById('live_launch');
+      dialog = document.createElement('DIV');
+      dialog.id = 'live_dialog';
+      dialog.style = 'background: white; border-radius: 5px; display: none; overflow: hidden; position: fixed; width: 300px; height: 400px; z-index: 9999; border: 1px solid #ccc;';
+
+      if (icon != null)
+      {
+        if (icon.style.left != '') dialog.style.left = icon.style.left;
+        if (icon.style.right != '') dialog.style.right = icon.style.right;
+        if (icon.style.top != '') dialog.style.top = 'calc(' + icon.style.top + ' + ' + icon.style.height + ' + 15px)';
+        if (icon.style.bottom != '') dialog.style.bottom = 'calc(' + icon.style.bottom + ' + ' + icon.style.height + ' + 15px)';
+      }
+
+      iframe = document.createElement('IFRAME');
+      iframe.id = 'live_dialog_iframe';
+      iframe.frameBorder = 0;
+      iframe.frameSpacing = 0;
+      iframe.style = 'height: 100%; width: 100%; position: absolute;';
+      iframe.onload = iframeLoaded;
+      let configString = '';
+      for (let i in config) if (configPassthrough.indexOf(i) != -1) configString += '&' + i + '=' + encodeURIComponent(config[i]);
+      iframe.src = service + '&referrer=' + encodeURIComponent(location.href) + configString;
+      dialog.appendChild(iframe);
+      document.body.appendChild(dialog);
+    }
+    if (!first_load) iframeLoaded.bind(iframe)();
+  };
+  const init = function()
+  {
+    const script = document.currentScript;
+    if (script != null) for (let i in script.dataset) if (configAllowed.indexOf(i) != -1) config[i] = script.dataset[i];
+    if (config.id == null) config.id = script != null && script.getAttribute('src') != null ? FW.getHashCode(script.getAttribute('src')) : '';
+    const icon = document.createElement('DIV');
+    icon.id = 'live_launch';
+    icon.style = (config.position || 'position:fixed;bottom:25px;right:25px;') + ';'
+      + (config.size || 'height:64px;width:64px;') + ';'
+      + '--live-color:' + (config.color || '#00669e') + ';--live-icon:url(' + defaultIcon + ');'
+      + (config.icon || 'background:var(--live-color) var(--live-icon) no-repeat center center;background-size:50%;border-radius:100%;')
+      + 'cursor: pointer;';
+    icon.title = 'Launch Chat';
+    document.body.appendChild(icon);
+    icon.addEventListener('click', launchChat);
+    window.addEventListener('message', handleWindowMessage);
+    let chat_session = localStorage.getItem('chat_session_embed_' + config.id);
+    if (chat_session != null) chat_session = JSON.parse(chat_session);
+    if (config.active || (chat_session != null && chat_session.updated >= Date.now() - 5 * 60 * 1000 && chat_session.active)) launchChat();
+    window.addEventListener('unload', function() { if (active) updateSessionActive(active); });
+  };
+  init();
+}(FW.$); }); } }();

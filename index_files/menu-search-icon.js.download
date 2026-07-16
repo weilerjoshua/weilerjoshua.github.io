@@ -1,0 +1,34 @@
+// menu search icon
+document.addEventListener('DOMContentLoaded', () => {
+	const menuSearchIcon = document.querySelector('#primary-menu #menu-item-97669 a');
+	const menuSearchWindow = document.getElementById('header-search');
+	const menuSearchForm = document.querySelector('#header-search form.search-form');
+
+	// Guard against missing elements
+	if (!menuSearchIcon || !menuSearchWindow) return;
+	menuSearchWindow.style.display = 'none';
+	menuSearchForm.style.height = '0';
+	menuSearchForm.style.padding = '0';
+	menuSearchForm.style.transition = 'padding 0.5s ease-out';
+	menuSearchIcon.addEventListener('click', (e) => {
+		e.preventDefault();               // stop the link navigation
+		if (menuSearchWindow.style.display === 'none') {
+			menuSearchWindow.style.display = 'block';
+			menuSearchForm.style.height = '100%';
+			menuSearchForm.style.padding = '20px';
+			document.addEventListener('click', (e2) => {
+			if (!menuSearchWindow.contains(e2.target) && e2.target !== menuSearchIcon) {
+				if (menuSearchWindow.style.display === 'block') {
+					menuSearchWindow.style.display = 'none';
+					menuSearchForm.style.height = 'initial';
+					menuSearchForm.style.padding = 'initial';
+				}
+			}
+		});
+		} else {
+			menuSearchWindow.style.display = 'none';
+			menuSearchForm.style.height = 'initial';
+			menuSearchForm.style.padding = 'initial';
+		}
+	});
+});

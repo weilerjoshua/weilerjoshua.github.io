@@ -1,0 +1,354 @@
+//andisites 
+  jQuery(function() {
+
+
+    // Let's change the images in background of homepage divisions
+    jQuery('.division').click(function(event){
+      event.preventDefault();
+      // Get the background image
+      $myimage = jQuery(this).find('.imbg').css('background-image');
+      // Assign it to the bgpath
+      jQuery('.bgpath').css(
+        "background-image", $myimage
+      );
+
+      //2. Get the text
+      $dvtext = jQuery(this).find('.imbg .dvcontent').html();
+
+      //3. Get the link
+      $the_link = jQuery(this).find('.the_program_link').attr('href');
+      jQuery('.as_button_1').css('display', 'block');
+
+      // 4. Assign the link to the More Info button
+      jQuery('.as_button_1').attr('href', $the_link);
+
+      // Assign it to the Main Path Display
+      jQuery('.mainpath').html($dvtext);
+    });
+
+    // When in smaller screens, simply move the buttons to the top.
+    if ( jQuery(window).width() <= 520) {
+      jQuery('.divisions').prependTo('#programs');
+
+      // also make them smaller
+      jQuery('.divisions').addClass('sml');
+    };
+
+    // If resize calculate again
+    jQuery(window).resize(function(){
+      if ( jQuery(window).width() <= 520) {
+        jQuery('.divisions').prependTo('#programs');
+        // also make them smaller
+        jQuery('.divisions').addClass('sml');
+    
+    } else {
+        // Reinsert after .paths   
+        jQuery('.divisions').insertAfter('.paths');
+        // remove the small class.
+        jQuery('.divisions').removeClass('sml');
+    }
+    });
+
+    // Storm Center Opener
+    jQuery('#sc-opener').click(function(){
+      jQuery('#stormcenter').slideToggle('slow');
+      jQuery('#sc-header').find('a').each(function() {
+        jQuery(this).attr('tabindex', '0');
+      });
+      jQuery('#sc-header').find('a').first().focus();
+    });
+
+
+    // In secondary pages, let's make the logo and the header smaller as we scroll.
+    /*
+    jQuery(document).on("scroll", function() {
+      if (jQuery(document).scrollTop() > 10){
+        jQuery("#dccc-header").addClass("shrink");
+      } else {
+        jQuery("#dccc-header").removeClass("shrink");
+      }
+    });
+	*/
+    // Height of Possible Careers in Areas of Interest
+    // It retrieves the max height of any of those boxes
+    // and makes the other ones the same min-height.
+    function reheight($tag) {
+      maxHeight = -1;
+
+      jQuery($tag).each(function(){
+        $this_one = jQuery(this).outerHeight();
+        // console.log($this_one);
+        
+        if (maxHeight > $this_one) {
+          maxHeight = maxHeight;  
+        } else {
+          maxHeight = jQuery(this).outerHeight();
+        }
+      });
+
+      jQuery($tag).each(function(){
+        jQuery(this).css('min-height', maxHeight);
+      });
+    }
+
+    // Execute Function ReHeight
+    reheight('.pcs');
+
+    // Also if the window is resized, calculate again.
+    jQuery(window).resize(function(){
+      reheight('.pcs');
+    });
+
+    // Reheight on CTAs
+    reheight('.mycta');
+    // Reheight on CTAs on mainsec
+    reheight('.mainsec .myctas');
+    // Function to make title heights the same in newsroom 
+    reheight('.blog h2.entry-title');
+
+    // Also if the window is resized, calculate again.
+    jQuery(window).resize(function(){
+      reheight('.mycta');
+      // Reheight on CTAs on mainsec
+      reheight('.mainsec .myctas');
+      // Entries on Newsroom
+      reheight('.blog h2.entry-title');
+    });
+
+    // Count CTAs in a page, then assign a class based on the number.
+    jQuery('.myctas .cta-back-image').each(function(i){
+      if (i < 12) {
+        jQuery(this).addClass('cta-nbr-' + (i+1));
+      } else {
+        i = i - 12;
+        jQuery(this).addClass('cta-nbr-' + (i+1));
+      }
+      
+    });
+
+    jQuery('.mycta .cta-back-image').each(function(i){
+      if (i < 12) {
+        jQuery(this).addClass('cta-nbr-' + (i+1));
+      } else {
+        i = i - 12;
+        jQuery(this).addClass('cta-nbr-' + (i+1));
+      }
+      
+    });
+
+
+
+    
+    jQuery(window).load(function() {
+      jQuery('.cycle-pager > span').attr('tabindex', '0');
+      jQuery('body.events-gridview, body.events-list').find('.stitle').find('h1').empty().append('DCCC Events Calendar');
+
+      jQuery('.parent, .closelightbox').click(function() {
+        jQuery(this).css('display', 'none');
+      });
+
+      jQuery('a.shadowbox_dccc').click(function() {
+        var videourl = jQuery(this).attr('videohref');
+        jQuery('.centeredchild').find('iframe').attr('src', videourl);
+        jQuery('.centeredchild').parent().css('display', 'block');
+
+        var screenheight = jQuery(window).height();
+        screenheight = screenheight * 1.1;
+        jQuery('.parent').height(screenheight + 'px');
+      });
+
+      var mapheight = jQuery('body.page-id-49450').find('.map').height();
+      // console.log(mapheight);
+      mapheight = mapheight + 25;
+      jQuery('body.page-id-49450').find('.map').parent().parent().css('overflow', 'hidden');
+
+      
+
+      /* Accordion */
+      jQuery('.ps-content').slideUp();
+      jQuery('.ps-content:first').slideDown();
+      jQuery('.ps-title:first .ps-icon').addClass('ps-active');
+
+
+      // when click 
+      jQuery('.ps-title').click(function() {
+        $theclicked = jQuery(this);
+
+        var classList = jQuery(this).attr('class').split(/\s+/);
+        
+        // review each class in the list to id the target
+        jQuery.each(classList, function(index, item) {
+//          if (item.index('id-')) {
+          if (item.indexOf('id-') > -1) {
+            idtarget = item;
+          }
+        });
+        
+        // When clicked toggle the target.
+        jQuery('.ps-content:not(.' + idtarget + ')').slideUp();
+
+        // Toggle the class on the target
+        jQuery('.ps-content.' + idtarget).slideToggle({
+          duration:600,
+          start: function() {
+            // if the class was there, then remove it
+            if ($theclicked.find('.ps-icon').hasClass('ps-active')) {
+              $theclicked.find('.ps-icon').removeClass('ps-active');
+            } else {
+              // remove all others
+              jQuery('.ps-icon').removeClass('ps-active');
+              // and add it to the clicked one.
+              $theclicked.find('.ps-icon').addClass('ps-active');
+            }
+          }
+        });
+      });
+
+      jQuery('.facultystaffdirectoryonly').hide();
+
+      var getpathname = window.location.pathname;
+
+      if(getpathname == '/faculty-staff-directory/') {
+        jQuery('.facultystaffdirectoryonly').show();
+      }
+
+      jQuery('.wpfront-close').click(function() {
+        jQuery('#wpfront-notification-bar-spacer').hide();
+      });
+
+      jQuery('#slider').attr('tabindex', '0');
+      jQuery('#slider, .slidelink > a').children().attr('tabindex', '-1');
+      jQuery('.slidelink > a').attr('tabindex', '-1');
+    });
+
+    // Search button activation
+    jQuery('.search-icon').click(function(e){
+      jQuery('.searchb').show();
+      jQuery('.sbox-b').focus();
+    });
+
+    // Close me button in the search function
+    jQuery('.closeme').click(function(e){
+      jQuery('.searchb').hide();
+    });
+
+    // Open and Close Sidebar on Mobile Devices
+    jQuery('.mobile-sidebar-opener').click(function(){
+      // Change class to up arrow
+      jQuery(this).children('span').toggleClass('glyphicon-chevron-down');
+      jQuery(this).children('span').toggleClass('glyphicon-chevron-up');
+
+      jQuery('#sidebar').slideToggle('slow');
+    });
+
+      jQuery('body.page-id-37361').find('section.mainsec').find('article.post-37361').find('div.entry-content').find('p').mouseenter(function() {
+        jQuery(this).find('img').each(function() {
+          jQuery(this).toggleClass('back');
+        });
+      });
+      jQuery('body.page-id-37361').find('section.mainsec').find('article.post-37361').find('div.entry-content').find('p').mouseleave(function() {
+        jQuery(this).find('img').each(function() {
+          jQuery(this).toggleClass('back');
+            });
+      });
+
+  });
+
+    jQuery("body").children().each(function() {
+        jQuery(this).html(jQuery(this).html().replace(/&#8232;/g," "));
+    });
+
+jQuery('.skipNav').click(function() {
+  //console.log('Testing worked');
+  jQuery('html, body').animate({
+    scrollTop: jQuery('.mainsec, #slider').offset().top - 50
+  }, 1000);
+});
+
+jQuery('body').keyup(function(e) {
+  var focusisin = document.activeElement;
+  var code = e.keyCode || e.which;
+  if(code=='9') {
+    console.log('tab');
+      jQuery('ul.sub-menu').each(function() {
+        var hasFocus = false;
+        if( (jQuery(this).is(':focus')) || (jQuery(this).parent().is(':focus')) || (jQuery(this).parent().find('a').is(':focus')) )  {
+          var hasFocus = true;
+        }
+        console.log(hasFocus);
+        if(hasFocus == true) {
+          jQuery(this).css('display', 'block');
+        } else {
+          jQuery(this).css('display', 'none');
+        }
+      });
+
+      if(jQuery('.skipNav').is(':focus')) {
+        jQuery('.skipNav').parent().parent().parent().css('padding-top', '50px').css('min-height', '100px');
+      } else {
+        jQuery('.skipNav').parent().parent().parent().css('padding-top', '0px').css('min-height', '50px');
+      }
+
+      jQuery('#slider').focusin(function() {
+        jQuery('#slider').css('border', '5px solid #158cba').css('border-top', '10px solid #158cba').css('border-bottom', '26px solid #158cba').css('overflow', 'hidden');
+      });
+      jQuery('#slider').focusout(function() {
+        jQuery('#slider').css('border', 'none').css('overflow', 'hidden');
+      });
+  }
+
+  if(code=='13') {
+    jQuery('.cycle-pager > span:focus').click();
+    jQuery('a:focus > .opener').click();
+  }
+
+  //if user pushes left/right arrow
+  if(code=='37' || code=='39') {
+    //if the slider is focused
+    if(jQuery('#slider').focusin()) {
+      //after slide has loaded
+      setTimeout(function() {
+        //loop through each slide
+        jQuery('li.tp-revslider-slidesli').each(function() {
+          //get slide's ID
+          var thisID = jQuery(this).attr('id');
+          //if slide is static
+          if(thisID == 'makeStatic') {
+            //remove id
+            jQuery(this).removeAttr('id');
+          }
+        });
+        //make current slide static
+        jQuery('li.active-revslide').attr('id', 'makeStatic');
+
+        //find active slide
+        jQuery('.active-revslide').each(function() {
+          //determine visibility
+          var visibilityIndex = true;
+          var thisElement = jQuery(this);
+          var opacityElement = jQuery(this).css('opacity');
+
+          //if opacity is 1
+          if(opacityElement == '1') {
+            setTimeout(function() {
+              //focus on link
+              jQuery(thisElement).find('a').focus();
+            }, 250);
+            visibilityIndex = false;
+          }
+
+          //if visibile slide has been found, end loop
+          return visibilityIndex;
+        });
+      }, 1000);
+    }
+  }
+});
+
+jQuery('#topnavbar .main-nav ul li.menu-item-has-children a:focus').parent().find('ul.sub-menu').css('display', 'block !important').css('z-index', '999');
+
+// window.setInterval(function(){
+//       jQuery('#slider, .slidelink').find('a').each(function() {
+//            jQuery(this).attr('tabindex', '-1');
+//       });
+// }, 1000);
