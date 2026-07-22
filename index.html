@@ -5,22 +5,138 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>test - Davidson-Davie Community College</title>
 <style>
-:root{--blue:#002D5B;--orange:##DF3011;--light:#f7f7f7}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--blue)}
-.container{max-width:1200px;margin:auto;padding:0 24px}
-.topbar{background:var(--blue);color:#fff}.topbar .container{display:flex;justify-content:space-between}
-.topbar a{color:#fff;text-decoration:none;padding:18px 24px;display:inline-block}.apply{background:var(--orange)}
-header{background:#fff;border-bottom:3px solid #ddd}.header{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
-.header img{height:72px}.nav a{text-decoration:none;color:var(--blue);font-weight:700;margin-left:34px}
-main{padding:30px 0 140px}.crumb{font-size:15px;margin-bottom:20px}.title{font-size:64px;font-weight:300;margin:0 0 70px}
-#slate-container{min-height:350px}
-.divider{border-top:4px dotted #ddd}
-footer{background:var(--blue);color:#fff;padding:70px 0}.footer-logo{height:64px}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-top:50px}
-.grid h3{margin:0 0 18px}.grid a{display:block;color:#fff;text-decoration:none;padding:6px 0}
-@media(max-width:900px){.topbar .container,.header,.grid{display:block}.nav a{display:block;margin:10px 0 0}.grid{grid-template-columns:1fr}}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #002D5B;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+.topbar {
+    background: #002D5B;
+    color: #fff;
+}
+
+.topbar .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 18px 24px;
+    display: inline-block;
+}
+
+.apply {
+    background: #DF3011;
+}
+
+header {
+    background: #fff;
+    border-bottom: 3px solid #ddd;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+}
+
+.header img {
+    height: 72px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #002D5B;
+    font-weight: 700;
+    margin-left: 34px;
+}
+
+main {
+    padding: 30px 0 140px;
+}
+
+.crumb {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 64px;
+    font-weight: 300;
+    margin: 0 0 70px;
+}
+
+#slate-container {
+    min-height: 350px;
+}
+
+.divider {
+    border-top: 4px dotted #ddd;
+}
+
+footer {
+    background: #002D5B;
+    color: #fff;
+    padding: 70px 0;
+}
+
+.footer-logo {
+    height: 64px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.grid h3 {
+    margin: 0 0 18px;
+}
+
+.grid a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 0;
+}
+
+@media (max-width: 900px) {
+    .topbar .container,
+    .header,
+    .grid {
+        display: block;
+    }
+
+    .nav a {
+        display: block;
+        margin: 10px 0 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Footer */
+
 .site-footer {
-    background: var(--blue);
+    background: #002D5B;
     color: #fff;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -151,8 +267,7 @@ footer{background:var(--blue);color:#fff;padding:70px 0}.footer-logo{height:64px
         grid-template-columns: 1fr;
     }
 }
-
-
+``
 </style>
 </head>
 <body>
