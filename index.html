@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>test - Davidson-Davie Community College</title>
 <style>
-:root{--blue:#17396b;--orange:#d4542d;--light:#f7f7f7}
+:root{--blue:#002D5B;--orange:##DF3011;--light:#f7f7f7}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--blue)}
 .container{max-width:1200px;margin:auto;padding:0 24px}
 .topbar{background:var(--blue);color:#fff}.topbar .container{display:flex;justify-content:space-between}
@@ -18,6 +18,141 @@ main{padding:30px 0 140px}.crumb{font-size:15px;margin-bottom:20px}.title{font-s
 footer{background:var(--blue);color:#fff;padding:70px 0}.footer-logo{height:64px}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;margin-top:50px}
 .grid h3{margin:0 0 18px}.grid a{display:block;color:#fff;text-decoration:none;padding:6px 0}
 @media(max-width:900px){.topbar .container,.header,.grid{display:block}.nav a{display:block;margin:10px 0 0}.grid{grid-template-columns:1fr}}
+/* Footer */
+.site-footer {
+    background: var(--blue);
+    color: #fff;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-divider {
+    border-top: 4px dotted #d8d8d8;
+    background: #f7f7f7;
+    height: 28px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px 50px;
+}
+
+.footer-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.footer-brand img {
+    max-height: 72px;
+    width: auto;
+}
+
+.social-links {
+    display: flex;
+    gap: 18px;
+}
+
+.social-links img {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
+}
+
+.footer-addresses {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.footer-addresses h3,
+.footer-links h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-addresses p {
+    margin: 0;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    border-top: 1px solid rgba(255,255,255,.35);
+}
+
+.footer-links li:last-child {
+    border-bottom: 1px solid rgba(255,255,255,.35);
+}
+
+.footer-links a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    opacity: .85;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    padding: 25px 40px 45px;
+    border-top: 1px solid rgba(255,255,255,.35);
+}
+
+.footer-bottom p {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.disclaimer {
+    max-width: 900px;
+}
+
+@media (max-width: 1000px) {
+    .footer-brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 </style>
 </head>
 <body>
@@ -33,7 +168,8 @@ footer{background:var(--blue);color:#fff;padding:70px 0}.footer-logo{height:64px
 </div></div></div>
 
 <header><div class="container header">
-<a href="/"><img src="https://www.davidsondavie.edu/wp-content/themes/dccc/images/Davidson-Davie-Logo.png" alt="Logo"></a>
+<a href="/"><img id="dccc-logo" src="https://www.davidsondavie.edu/wp-content/themes/dccc/images/Davidson-Davie-Logo.png" alt="Logo" data-uw-rm-alt="ALT"></a>
+
 <nav class="nav">
 <a href="#">About</a><a href="#">Academics</a><a href="#">Admissions</a>
 <a href="#">Student Life</a><a href="#">Community</a><a href="#">Events</a>
@@ -47,17 +183,142 @@ footer{background:var(--blue);color:#fff;padding:70px 0}.footer-logo{height:64px
 
 <div class="divider"></div>
 
-<footer><div class="container">
-<img class="footer-logo" src="https://www.davidsondavie.edu/wp-content/themes/dccc/images/Davidson-Davie-College-Logo-Header.png" alt="">
-<div class="grid">
-<div><h3>Davidson Campus</h3>297 DCC Road<br>Thomasville, NC 27360<br>phone: 336.249.8186</div>
-<div><h3>Campus Information</h3>
-<a href="#">Locations</a><a href="#">Campus Map</a><a href="#">Conference Center</a>
-</div>
-<div><h3>Resources</h3>
-<a href="#">Faculty &amp; Staff Resources</a>
-<a href="#">Audited Financial Statements</a>
-<a href="#">Employment</a>
-</div>
-</div></div></footer>
+<footer class="site-footer">
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-container">
+
+        <!-- Left Side -->
+        <div class="footer-brand">
+
+            <img
+                src="https://www.davidsondavie.edu/wp-content/themes/dccc/images/Davidson-Davie-College-Logo-Header.png"
+                alt="Davidson-Davie Community College">
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/DavidsonDavieCC">
+                    <img src="/wp-content/themes/ddcc-child-theme/images/footer-facebook.svg" alt="Facebook">
+                </a>
+
+                <a href="https://twitter.com/davidsondaviecc">
+                    <img src="/wp-content/themes/ddcc-child-theme/images/footer-x.svg" alt="X">
+                </a>
+
+                <a href="https://www.youtube.com/channel/UC0luuypWEP2mWVCYOZseixg">
+                    <img src="/wp-content/themes/ddcc-child-theme/images/footer-youtube.svg" alt="YouTube">
+                </a>
+
+                <a href="https://www.instagram.com/davidsondaviecc/">
+                    <img src="/wp-content/themes/ddcc-child-theme/images/footer-instagram.svg" alt="Instagram">
+                </a>
+
+                <a href="https://www.tiktok.com/@davidsondaviecc?lang=en">
+                    <img src="/wp-content/themes/ddcc-child-theme/images/footer-tiktok.svg" alt="TikTok">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+        <div class="footer-content">
+
+            <!-- Addresses -->
+            <div class="footer-addresses">
+
+                <div>
+                    <h3>Davidson Campus</h3>
+                    <p>
+                        297 DCC Road<br>
+                        Thomasville, NC 27360<br>
+                        Phone: 336.249.8186
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Davie Campus</h3>
+                    <p>
+                        1205 Salisbury Road<br>
+                        Mocksville, NC 27028<br>
+                        Phone: 336.751.2885
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Mailing Address</h3>
+                    <p>
+                        PO Box 1287<br>
+                        Lexington, NC 27293
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Link Columns -->
+            <div class="footer-links">
+
+                <div>
+
+                    <h3>Campus Information</h3>
+
+                    <ul>
+                        <li><a href="https://www.davidsondavie.edu/mission-vision-values/locations/">Locations</a></li>
+                        <li><a href="https://www.davidsondavie.edu/mission-vision-values/locations/davidson-campus-map/">Campus Map</a></li>
+                        <li><a href="https://www.davidsondavie.edu/mary-e-rittling-conference-center/">Conference Center</a></li>
+                        <li><a href="https://www.davidsondavie.edu/student-life/campus-safety/">Campus Safety</a></li>
+                        <li><a href="https://www.davidsondavie.edu/title-ix/">Title IX</a></li>
+                        <li><a href="https://www.davidsondavie.edu/contact-us/">Contact Us</a></li>
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h3>Our Extended Community</h3>
+
+                    <ul>
+                        <li><a href="https://davidsondaviefoundation.org/">Our Foundation</a></li>
+                        <li><a href="https://davidsondaviefoundation.org/alumni/" target="_blank">Alumni &amp; Friends</a></li>
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h3>Resources</h3>
+
+                    <ul>
+                        <li><a href="https://www.davidsondavie.edu/faculty-and-staff-resources/">Faculty &amp; Staff Resources</a></li>
+                        <li><a href="https://www.davidsondavie.edu/wp-content/uploads/2025/12/2025-Davidson-Davie-Community-College-Audited-Financial-Statements.pdf" target="_blank">Audited Financial Statements</a></li>
+                        <li><a href="https://www.davidsondavie.edu/mission-vision-values/employment/">Employment</a></li>
+                        <li><a href="https://www.davidsondavie.edu/sitemap/">Sitemap</a></li>
+                        <li><a href="https://www.davidsondavie.edu/digital-accessibility/">Digital Accessibility</a></li>
+                        <li><a href="https://www.davidsondavie.edu/coronavirus-response/">COVID-19</a></li>
+                        <li><a href="https://www.davidsondavie.edu/health-coverage-tax-document-1095-c-form/">1095-C Tax Information</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Davidson-Davie Community College | All rights reserved.
+        </p>
+
+        <p class="disclaimer">
+            Davidson-Davie Community College does not discriminate on the basis of race, color,
+            national origin, religion, sex, age, disability, pregnancy, political affiliation,
+            veteran status, sexual orientation, or gender identity in any of its programs,
+            activities, or services.
+        </p>
+
+    </div>
+
+</footer>
 </body></html>
